@@ -12,7 +12,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
+
   <form (ngSubmit)="createCategory()">
     <ion-item>
       <ion-input placeholder="Título de la Categoria" [(ngModel)]="categoryTitle" name="categoryTitle" required></ion-input>

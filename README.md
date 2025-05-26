@@ -17,6 +17,7 @@ Instalado:
 - Ionic CLI:
 ```bash
 npm install -g @ionic/cli
+npm install @capacitor/android
 ```
 
 ✅ 2. Instalar Capacitor y configurar Android

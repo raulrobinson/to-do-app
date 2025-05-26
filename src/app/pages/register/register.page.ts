@@ -15,6 +15,9 @@ import {
 } from '@ionic/angular/standalone';
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
+import { Platform } from '@ionic/angular';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { Capacitor } from "@capacitor/core";
 
 @Component({
   selector: 'app-register',
@@ -30,13 +33,20 @@ export class RegisterPage implements OnInit {
     constructor(
         private fb: FormBuilder,
         private auth: AuthService,
-        private router: Router
+        private router: Router,
+        private platform: Platform
     ) {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
             name: ['', [Validators.required, Validators.minLength(2)]],
             confirmedPassword: ['', [Validators.required, Validators.minLength(6)]]
+        });
+        this.platform.ready().then(() => {
+            if (Capacitor.getPlatform() !== 'web') {
+                StatusBar.setOverlaysWebView({ overlay: false });
+                StatusBar.setStyle({ style: Style.Light });
+            }
         });
     }
 

@@ -16,6 +16,9 @@ import { CategoryService } from "../../services/category.service";
 import { Category } from "../../models/category.model";
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
+import { Platform } from '@ionic/angular';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { Capacitor } from "@capacitor/core";
 
 @Component({
   selector: 'app-categories',
@@ -35,6 +38,15 @@ export class CategoriesPage implements OnInit {
   private alertCtrl = inject(AlertController);
   private router = inject(Router);
   categoryTitle: string = '';
+
+  constructor(private platform: Platform) {
+    this.platform.ready().then(() => {
+      if (Capacitor.getPlatform() !== 'web') {
+        StatusBar.setOverlaysWebView({ overlay: false });
+        StatusBar.setStyle({ style: Style.Light });
+      }
+    });
+  }
 
   // [INITIALIZATION]
   ngOnInit() {

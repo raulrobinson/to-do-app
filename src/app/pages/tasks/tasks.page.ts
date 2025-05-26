@@ -19,6 +19,9 @@ import { Category } from "../../models/category.model";
 import { TaskService } from "../../services/task.service";
 import { CategoryService } from "../../services/category.service";
 import { Task } from "../../models/task.model";
+import { Platform } from '@ionic/angular';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { Capacitor } from "@capacitor/core";
 
 @Component({
   selector: 'app-tasks',
@@ -43,6 +46,15 @@ export class TasksPage implements OnInit {
   private router = inject(Router);
   private alertCtrl: AlertController = inject(AlertController);
   tasks$: Observable<Task[]> = this.taskService.getTasks();
+
+  constructor(private platform: Platform) {
+    this.platform.ready().then(() => {
+      if (Capacitor.getPlatform() !== 'web') {
+        StatusBar.setOverlaysWebView({ overlay: false });
+        StatusBar.setStyle({ style: Style.Light });
+      }
+    });
+  }
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe(cats => this.categories = cats);
