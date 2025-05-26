@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Categorías</ion-title>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" [routerLink]="['/tasks']">Tareas</ion-button>
+    </ion-buttons>
+
+    <!-- [BOTÓN SALIR] -->
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Salir</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="createCategory()">
+    <ion-item>
+      <ion-input placeholder="Título de la Categoria" [(ngModel)]="categoryTitle" name="categoryTitle" required></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Agregar Categoria</ion-button>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let cat of categories">
+      {{ cat.name }}
+      <ion-buttons slot="end">
+        <ion-button (click)="openEditCategory(cat)">Editar</ion-button>
+        <ion-button color="danger" (click)="deleteCategory(cat.id!)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
