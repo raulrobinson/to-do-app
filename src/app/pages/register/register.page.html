@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="register()">
+
+    <!-- [NAME] -->
+    <ion-item>
+      <ion-label position="floating">Nombre(s)</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <!-- [LAST NAME] -->
+    <ion-item>
+      <ion-label position="floating">Apellido(s)</ion-label>
+      <ion-input formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <!-- [E-MAIL] -->
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <!-- [PASSWORD] -->
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <!-- [CONFIRM PASSWORD] -->
+    <ion-item>
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+    </ion-item>
+
+    <!-- [ERROR] -->
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+
+    <!-- [BUTTON] -->
+    <ion-button class="ion-margin-top" expand="full" type="submit" [disabled]="form.invalid">Registrarse</ion-button>
+
+    <!-- [INGRESAR] -->
+    <div class="center-button">
+      <ion-button fill="clear" [routerLink]="['/auth/login']">
+        ¿Ya tienes cuenta? Inicia sesión
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>
