@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import {HttpEvent, HttpRequest} from "@angular/common/module.d-CnjH8Dlt";
-import {HttpHandler} from "@angular/common/http";
-import {from, Observable, switchMap} from "rxjs";
+import { HttpEvent, HttpRequest } from "@angular/common/module.d-CnjH8Dlt";
+import { HttpHandler } from "@angular/common/http";
+import { from, Observable, switchMap } from "rxjs";
 
 @Injectable()
 export class AuthInterceptor {

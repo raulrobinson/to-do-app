@@ -6,13 +6,8 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 import { routes } from './app/app.routes';
-import { environment } from './environments/environment';
 import { AppComponent } from './app/app.component';
-
-import { addIcons } from 'ionicons';
-import { trash } from 'ionicons/icons';
-
-addIcons({ trash });
+import { environment } from './environments/environment';
 
 bootstrapApplication(AppComponent, {
   providers: [

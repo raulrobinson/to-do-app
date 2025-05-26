@@ -8,6 +8,7 @@ import {
   updateProfile
 } from "@angular/fire/auth";
 import { map } from "rxjs";
+import { UserCredential } from "../models/user-credential.models";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import { map } from "rxjs";
 export class AuthService {
   private afAuth = inject(Auth);
 
-  login(email: string, password: string) {
+  login(email: string, password: string) : Promise<UserCredential> {
     return signInWithEmailAndPassword(this.afAuth, email, password);
   }
 

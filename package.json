@@ -1,7 +1,7 @@
 {
-  "name": "to-do-app",
+  "name": "TemplateToDoAppStandalone",
   "version": "0.0.1",
-  "author": "Raul Bolivar Navas",
+  "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -62,5 +62,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.6.3"
   },
-  "description": "APP demo for To Do tasks and categories"
+  "description": "An Ionic project"
 }
