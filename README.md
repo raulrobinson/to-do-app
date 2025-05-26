@@ -51,3 +51,24 @@ ionic build
 npx cap copy android
 npx cap open android
 ```
+
+✅ 6. Probar la app
+
+![login.png](docs/login.png)
+
+![register.png](docs/register.png)
+
+![tasks.png](docs/tasks.png)
+
+![categories.png](docs/categories.png)
+
+![filter.png](docs/filter.png)
+
+
+### Author
+
+- [@Raul Bolivar Navas](https://github.com/raulrobinson/to-do-app)
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
