@@ -2,16 +2,13 @@ const fs = require('fs');
 const dotenv = require('dotenv');
 const path = require('path');
 
-const envFile = process.env["ENV"] === 'prod' ? '.env.prod' : '.env';
-dotenv.config({ path: envFile });
+dotenv.config();
 
-const isProd = process.env["ENV"] === 'prod';
-
-const outputFile = path.join(__dirname, `../src/environments/environment${isProd ? '.prod' : ''}.ts`);
+const outputFile = path.join(__dirname, `../src/environments/environment.prod.ts`);
 
 const content = `
 export const environment = {
-  production: ${isProd},
+  production: true,
   firebaseConfig: {
     apiKey: "${process.env["API_KEY"]}",
     authDomain: "${process.env["AUTH_DOMAIN"]}",

@@ -2,6 +2,14 @@
 
 APP demo for To Do tasks and categories
 
+### Generar los environments de producción
+
+Previo a compilar la app, se debe tener el archivo **.env** con las variables requeridas, es necesario generar los archivos de configuración de producción. Esto se hace con el siguiente comando:
+
+```bash
+npx ts-node tools/env-generator.ts
+```
+
 ✅ 1. Requisitos previos
 Instalado:
 
